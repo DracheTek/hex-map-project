@@ -2,8 +2,6 @@
 
 画布是用来绘图的矩形控件
 
-A canvas is a rectangular area intended for drawing pictures or other complex layouts. On it you can place graphics, text, widgets, or frames. See the following sections for methods that create objects on canvases:
-
 函数：
 
 - create_bitmap():

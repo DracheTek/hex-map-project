@@ -4,10 +4,10 @@
 2. A minimal application
 3. Definitions
 4. Layout management
-4.1. The .grid() method
-4.2. Other grid management methods
-4.3. Configuring column and row sizes
-4.4. Making the root window resizeable
+    4.1. The .grid() method
+    4.2. Other grid management methods
+    4.3. Configuring column and row sizes
+    4.4. Making the root window resizeable
 5. Standard attributes
     5.1. Dimensions
     5.2. The coordinate system
@@ -49,7 +49,7 @@
 12. The Label widget
 13. The LabelFrame widget
 14. The Listbox widget
-14.1. Scrolling a Listbox widget
+    14.1. Scrolling a Listbox widget
 15. The Menu widget
     15.1. Menu item creation (coption) options
     15.2. Top-level menus
@@ -57,7 +57,7 @@
 17. The Message widget
 18. The OptionMenu widget
 19. The PanedWindow widget
-19.1. PanedWindow child configuration options
+    19.1. PanedWindow child configuration options
 20. The Radiobutton widget
 21. The Scale widget
 22. The Scrollbar widget
@@ -103,7 +103,7 @@
 45. ttk.Treeview
     45.1. Virtual events for the ttk.Treeview widget
 46. Methods common to all ttk widgets
-46.1. Specifying widget states in ttk
+    46.1. Specifying widget states in ttk
 47. Customizing and creating ttk themes and styles
 48. Finding and using ttk themes
 49. Using and customizing ttk styles
@@ -113,7 +113,7 @@
 51. Connecting your application logic to the widgets
 52. Control variables: the values behind the widgets
 53. Focus: routing keyboard input
-53.1. Focus in ttk widgets
+    53.1. Focus in ttk widgets
 54. Events
     54.1. Levels of binding
     54.2. Event sequences

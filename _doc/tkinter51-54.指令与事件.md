@@ -126,55 +126,35 @@ An event handler is a function in your application that gets called when an even
 
 ### 事件的绑定
 
-We call it binding when your application sets up an event handler that gets called when an event happens to a widget.
+在调用事件句柄之前要先将事件对象绑定到小工具或应用上。
 
-You can bind a handler to an event at any of three levels:
+对象层：绑定到特定的小工具对象上。
 
-Instance binding: You can bind an event to one specific widget. For example, you might bind the PageUp key in a canvas widget to a handler that makes the canvas scroll up one page. To bind an event of a widget, call the .bind() method on that widget (see Section 26, “Universal widget methods”).
+例如，将一个事件绑定到画布上，条件是“鼠标按钮2按下”，内容是“绘制橙色球形”，这样做：
 
-For example, suppose you have a canvas widget named self.canv and you want to draw an orange blob on the canvas whenever the user clicks the mouse button 2 (the middle button). To implement this behavior:
-
+```python
     self.canv.bind('<Button-2>', self.__drawOrangeBlob)
-The first argument is a sequence descriptor that tells Tkinter that whenever the middle mouse button goes down, it is to call the event handler named self.__drawOrangeBlob. (See Section 54.6, “Writing your handler: The Event class”, below, for an overview of how to write handlers such as .__drawOrangeBlob()). Note that you omit the parentheses after the handler name, so that Python will pass in a reference the handler instead of trying to call it right away.
+```
 
-Class binding: You can bind an event to all widgets of a class. For example, you might set up all Button widgets to respond to middle mouse button clicks by changing back and forth between English and Japanese labels. To bind an event to all widgets of a class, call the .bind_class() method on any widget (see Section 26, “Universal widget methods”, above).
+类层：绑定到一个类的所有实例。
 
-For example, suppose you have several canvases, and you want to set up mouse button 2 to draw an orange blob in any of them. Rather than having to call .bind() for every one of them, you can set them all up with one call something like this:
+例如，给所有的画布绑定一个功能，按下鼠标中键是绘制橙色球体。这样做：
 
-    self.bind_class('Canvas', '<Button-2>',
-                       self.__drawOrangeBlob)
-Application binding: You can set up a binding so that a certain event calls a handler no matter what widget has the focus or is under the mouse. For example, you might bind the PrintScrn key to all the widgets of an application, so that it prints the screen no matter what widget gets that key. To bind an event at the application level, call the .bind_all() method on any widget (see Section 26, “Universal widget methods”).
+```python
+    self.bind_class('Canvas', '<Button-2>', self.__drawOrangeBlob)
+```
 
-Here's how you might bind the PrintScrn key, whose “key name” is 'Print':
+应用层：绑定一个事件到应用，不管现在的焦点在何处都先处理这种输入。
 
+```python
     self.bind_all('<Key-Print>', self.__printScreen)
+```
 
 ### 事件的顺序
 
-Tkinter has a powerful and general method for allowing you to define exactly which events, both specific and general, you want to bind to handlers.
+事件通过事件模板生成。模板的形式是"<[修正若干个-]类别[-细节若干个]>"
 
-In general, an event sequence is a string containing one or more event patterns. Each event pattern describes one thing that can happen. If there is more than one event pattern in a sequence, the handler will be called only when all the patterns happen in that same sequence.
-
-The general form of an event pattern is:
-
-<[modifier-]...type[-detail]>
-The entire pattern is enclosed inside <…>.
-
-The event type describes the general kind of event, such as a key press or mouse click. See Section 54.3, “Event types”.
-
-You can add optional modifier items before the type to specify combinations such as the shift or control keys being depressed during other key presses or mouse clicks. Section 54.4, “Event modifiers”
-
-You can add optional detail items to describe what key or mouse button you're looking for. For mouse buttons, this is 1 for button 1, 2 for button 2, or 3 for button 3.
-
-The usual setup has button 1 on the left and button 3 on the right, but left-handers can swap these positions.
-
-For keys on the keyboard, this is either the key's character (for single-character keys like the A or * key) or the key's name; see Section 54.5, “Key names” for a list of all key names.
-
-Here are some examples to give you the flavor of event patterns:
-
-<Button-1>	The user pressed the first mouse button.
-<KeyPress-H>	The user pressed the H key.
-<Control-Shift-KeyPress-H>	The user pressed control-shift-H.
+修正的种类见下一章，类别的种类见下两章，细节的种类见“按键名”。
 
 ### 事件的类型
 

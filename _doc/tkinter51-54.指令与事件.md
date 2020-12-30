@@ -186,11 +186,11 @@ Type	Name	Description
 The modifier names that you can use in event sequences include:
 
 Alt	True when the user is holding the alt key down.
-Any	This modifier generalizes an event type. For example, the event pattern '<Any-KeyPress>' applies to the pressing of any key.
 Control	True when the user is holding the control key down.
+Shift	True when the user is holding down the shift key.
+Any	This modifier generalizes an event type. For example, the event pattern '<Any-KeyPress>' applies to the pressing of any key.
 Double	Specifies two events happening close together in time. For example, <Double-Button-1> describes two presses of button 1 in rapid succession.
 Lock	True when the user has pressed shift lock.
-Shift	True when the user is holding down the shift key.
 Triple	Like Double, but specifies three events in rapid succession.
 You can use shorter forms of the events. Here are some examples:
 

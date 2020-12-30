@@ -1,12 +1,11 @@
-def test(**kwargs):
-    if "fill" in kwargs:
-        print(1)
-    else:
-        print(2)
-        
+width = 40
+height = 40
 
-def test2(**kwargs):
-    # test(kwargs)
-    pass
+row = 40
+pattern1  = ()
 
-test(fill = "black", alpha = 0.1, outline = "white")
+for r in range(row):
+    pattern1 = pattern1 + (width/4, r*height, 0, height*(r+1/2), width/4, height*(r+1))
+
+print (pattern1)
+print(list(pattern1))

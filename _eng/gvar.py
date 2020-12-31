@@ -1,5 +1,5 @@
 import hexunit
-
+from math import sqrt
 initflag = False
 
 STRING = type("str")
@@ -9,30 +9,37 @@ DOUBLE = type(0.0)
 TUPLE = type((0,))
 LIST = type([0,])
 DICT = type({"key" :"value"})
+SQRT32 = sqrt(3)/2
+
 
 truecol = True
 width = 48
 height = 48
+height_s = lambda : int(height*SQRT32)
+width_s = lambda : int(width*SQRT32)
 row = 4
 col = 4
 alpha = 255
 
+grid_alpha = 255
+grid_width = 3
+
 def hexpoint_tc():
     return (
-    0, height/2,
+    0, height_s()/2,
     width/4, 0,
     width*3/4, 0,
-    width, height/2,
-    width*3/4, height,
-    width/4, height,
+    width, height_s()/2,
+    width*3/4, height_s(),
+    width/4, height_s(),
     )
 
 def hexpoint_tr():
     return (
-    width/2,0,
-    width, height/4,
-    width, height*3/4,
-    width/2, height,
+    width_s()/2,0,
+    width_s(), height/4,
+    width_s(), height*3/4,
+    width_s()/2, height,
     0,height*3/4,
     0, height/4,
     )
@@ -52,15 +59,25 @@ for i in range(128):
     hexunitbase["white" + str(i)] = hexunit.HexUnit("white"+ str(i), "White "+str(i), (255,255,255)) 
 
 ## stamp base. Stores stamp (actual image) data in PIL pic form.
-stamplist_tc = []
+## tr = tc rotates 90deg. 
 stampbase_tc = {}
-
 stampbase_tr = {}
+
+## thumbnail used for minimap.
+## or reduce thumbnail and minimap to 4 pixels.
+
+stampbase_tn_tc = {}
+stampbase_tn_tr = {}
 
 ## stamp base in TK PhotoImage form. for future use.
 
 stampbase_pi_tc = {}
 stampbase_pi_tr = {}
+
+## grid pic in PIL and TK form
+
+grid_pil = None
+grid_tk = None
 
 ## icon base for future use. 
 ## map. correspond x-y value for table. 

@@ -5,6 +5,4 @@ import frame
 import gvar
 import mapgen as m
 
-
-
 frame.top.mainloop()

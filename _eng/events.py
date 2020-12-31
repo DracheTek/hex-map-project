@@ -9,5 +9,5 @@ def onResizingMain(event):
         print("Initialized")
     w = frame.top.winfo_width()
     h = frame.top.winfo_height()
-    frame.canvas.config(width = w, height= h)
-    print("Resizing Main Window")
+    frame.canvas.config(width = w, height= h-100)
+    # print("Resizing Main Window")

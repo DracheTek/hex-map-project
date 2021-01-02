@@ -1,0 +1,188 @@
+    # global gridstamp, gridstamp_tk
+    # c_rmd = g.col%10
+    # r_rmd = g.row%10
+    # c_dig = (g.col-c_rmd)//10
+    # r_dig = (g.row-r_rmd)//10
+    # if g.truecol:
+    #     g.grid_pil = Image.new("RGBA", (int(g.width*(g.col*3/4+1/4))+5, int(g.height_s()*(g.row+1/2))+5,))
+    #     pg0 = g.hexpoint_tc()+(g.hexpoint_tc()[0:2:1])
+    #     pg1 = list(g.hexpoint_tc()+(g.hexpoint_tc()[0:2:1]))
+    #     for c in range (10):
+    #         for r in range (10):
+    #             ImageDraw.Draw(g.grid_pil).line(pg1, fill = (0,0,0,)+(g.grid_alpha,), width = g.grid_width)
+    #             for i in range (1,14,2):
+    #                 pg1[i] = pg1[i] + g.height_s()
+    #         for i in range (0,14,2):
+    #             pg1[i] = pg1[i] + g.width/4*3
+    #             if (c%2==0):
+    #                     pg1[i+1] = pg0[i+1] + g.height_s()/2
+    #             else:
+    #                     pg1[i+1] = pg0[i+1]
+
+    #     g.grid_tk = ImageTk.PhotoImage(g.grid_pil)
+
+    #     for c in range (c_dig+1):
+    #         for r in range (r_dig+1):
+    #             xpos = int(g.width*min(10*c,max(10*(c-1)+c_rmd-1/2,0))) +5
+    #             ypos = int(g.height_s()*min(10*r,max(10*(r-1)+r_rmd,0))) +5 
+    #             f.canvas.create_image(xpos,ypos,image = g.grid_tk,anchor = tk.NW)
+
+    # else:
+    #     g.grid_pil = Image.new("RGBA", (int(g.height_s()*(10+1/2))+5, int(g.width*(10*3/4+1/4))+5,))
+    #     pg0 = g.hexpoint_tr()+(g.hexpoint_tr()[0:2:1])
+    #     pg1 = list(g.hexpoint_tr()+(g.hexpoint_tr()[0:2:1]))
+    #     for r in range (10):
+    #         for c in range (10):
+    #             ImageDraw.Draw(g.grid_pil).line(pg1, fill = (0,0,0,)+(g.grid_alpha,), width = g.grid_width)
+    #             for i in range (0,14,2):
+    #                 pg1[i] = pg1[i] + g.height_s()
+    #         if (r%2 == 0):
+    #             for i in range (0,14,2):
+    #                 pg1[i] = pg0[i] + g.height_s()/2
+    #         else:
+    #             for i in range (0,14,2):
+    #                 pg1[i] = pg0[i]    
+    #         for i in range (1,14,2):
+    #             pg1[i] = pg1[i] + g.width/4*3
+
+    #     g.grid_tk = ImageTk.PhotoImage(g.grid_pil)
+    #     xpos = 0
+    #     ypos = 0
+    #     for r in range(r_dig+1):
+    #         for c in range (c_dig+1):
+    #             if (r == r_dig):
+    #                 ypos = g.height*(10*(r-1)+r_rmd)/4*3 + 5
+    #                 xpos = int(g.width_s()*min(10*c,max(10*(c-1)+c_rmd,0)))+5+g.width_s()
+    #                 f.canvas.create_image(xpos, ypos, image = g.grid_tk, anchor = tk.NW)
+    #             else:
+    #                 ypos = g.height*10*r + 5
+                # ypos = int(g.height*min(10*r,max(10*(r-1)+r_rmd-1/2,0)))+5+g.height*3/4
+        # f.canvas.create_image(int(g.width_s())+5,int(g.height*3/4)+5,image = g.grid_tk,anchor = tk.NW)
+
+    # g.grid_pil = Image.new("RGBA", (int(g.width*(g.col*3/4)), int(g.height_s()*(g.row+1/2)),))
+    # pg0 = ImageDraw._compute_regular_polygon_vertices()
+    # for c in range(g.col):
+    #     for r in range(g.row):
+    #         # g.heightImageDraw.Draw(gridstamp).polygon()
+    #         hexpoints = ImageDraw._compute_regular_polygon_vertices()
+
+    #         # ImageDraw.Draw(g.grid_pil).regular_polygon((g.width*(c*3/4+3/2),g.height*((r+(c%2)/2+1)*sqrt(3)/2),g.width/2 ),6,rotation = 0 if g.truecol else 90, fill = (0,0,0,0), outline = (0,0,0,255))
+    # print(gridstamp.size)
+    # gridstamp_tk = g.heightImageTk.PhotoImage(image = gridstamp)
+    # f.canvas.create_image(0,0, image = gridstamp_tk, anchor = tk.NW)
+    # pattern1 = []
+    # toppattern = []
+    # botpattern = []
+    # for c in range (g.col+1):
+    #     # print(c)
+    #     if (c%2==0):
+    #         toppattern.append((g.width*(c*3/4),g.height/2,))
+    #         if (c != g.col):
+    #             toppattern.append((g.width*(c*3/4+1/4),0,))
+    #             botpattern.append((g.width*(c*3/4+3/4),g.height*g.row,))
+    #             botpattern.append((g.width*(c*3/4+1),g.height*(g.row+1/2),))
+
+    #         for r in range(g.row):
+    #             pattern1.append((g.width*(c*3/4),g.height*(r+1/2),))
+    #             pattern1.append((g.width*(c*3/4+1/4), g.height*(r+1),))
+    #         pattern1.append((g.width*(c*3/4+1/4),g.height*(g.row),))
+    #         if(c!=g.col):
+    #             pattern1.append((g.width*(c*3/4+3/4),g.height*(g.row),))
+    #     else:
+    #         toppattern.append((g.width*(c*3/4),0,))
+    #         if (c != g.col):
+    #             toppattern.append((g.width*(c*3/4+1/4), g.height/2,))
+    #             botpattern.append((g.width*(c*3/4+3/4),g.height*(g.row+1/2),))
+    #             botpattern.append((g.width*(c*3/4+1),g.height*(g.row),))
+
+    #         for r in range(g.row-1,0,-1):
+    #             pattern1.append((g.width*(c*3/4+1/4),g.height*(r+1/2),))
+    #             pattern1.append((g.width*(c*3/4),g.height*(r),))
+    #         pattern1.append((g.width*(c*3/4+1/4),g.height/2,))
+    #         # pattern1.append((g.width*(c+1/2),g.height/2))
+    # imagebuffer = Image.new("RGBA",(int(g.width*g.col*3/4)+10,int(g.height*g.row+height/2)+10,))
+    # ImageDraw.Draw(imagebuffer).line(pattern1, fill = (0,0,0,255), width = 3)
+    # g.grid_pil = Image.new()
+
+
+# def make_hex_stamp(name, color):
+#     """
+#     draw a hex stamp and nest it in dictionary.
+#     """
+#     # if g.truecol:
+#     colortouse = None
+#     # if isinstance(name, str):
+#         # raise TypeError("Name must be a string")
+#     if isinstance(color, h.HexUnit):
+#         colortouse = color.color
+#     elif isinstance(color, tuple):
+#         colortouse = color
+#     imagebuffer = Image.new("RGBA", (g.width, g.height))
+#     ImageDraw.Draw(imagebuffer).polygon(g.hexpoint_tc(),fill = colortouse+(g.alpha,), outline= (0,0,0,255))
+#     g.stampbase_tc[name] = imagebuffer.copy()
+#     g.stampbase_pi_tc[name] = ImageTk.PhotoImage(g.stampbase_tc[name])
+#     # imagebuffer = Image.new("RGBA", (g.width, g.height)
+#     imagebuffer = imagebuffer.rotate(90)
+#     g.stampbase_tr[name] = imagebuffer.copy()
+#     g.stampbase_pi_tr[name] = ImageTk.PhotoImage(g.stampbase_tr[name])
+
+#     # else:
+
+
+# def draw_new_hex_grid_bmp():
+
+#     c_rmd = g.col%10
+#     r_rmd = g.row%10
+#     c_dig = (g.col-c_rmd)//10
+#     r_dig = (g.row-r_rmd)//10
+#     if g.truecol:
+#         g.grid_pil = Image.new("1", (int(g.width*(g.col*3/4+1/4))+5, int(g.height_s()*(g.row+1/2))+5,))
+#         pg0 = g.hexpoint_tc()+(g.hexpoint_tc()[0:2:1])
+#         pg1 = list(g.hexpoint_tc()+(g.hexpoint_tc()[0:2:1]))
+#         for c in range (10):
+#             for r in range (10):
+#                 ImageDraw.Draw(g.grid_pil).line(pg1)
+#                 for i in range (1,14,2):
+#                     pg1[i] = pg1[i] + g.height_s()
+#             for i in range (0,14,2):
+#                 pg1[i] = pg1[i] + g.width/4*3
+#                 if (c%2==0):
+#                         pg1[i+1] = pg0[i+1] + g.height_s()/2
+#                 else:
+#                         pg1[i+1] = pg0[i+1]
+
+#         g.grid_tk = ImageTk.BitmapImage(g.grid_pil)
+
+#         for c in range (c_dig+1):
+#             for r in range (r_dig+1):
+#                 xpos = int(g.width*min(10*c,max(10*(c-1)+c_rmd-1/2,0))) +5
+#                 ypos = int(g.height_s()*min(10*r,max(10*(r-1)+r_rmd,0))) +5 
+#                 f.canvas.create_image(xpos,ypos,image = g.grid_tk,anchor = tk.NW)
+
+#     else:
+#         g.grid_pil = Image.new("1", (int(g.height_s()*(10+1/2))+5, int(g.width*(10*3/4+1/4))+5,))
+#         pg0 = g.hexpoint_tr()+(g.hexpoint_tr()[0:2:1])
+#         pg1 = list(g.hexpoint_tr()+(g.hexpoint_tr()[0:2:1]))
+#         for r in range (10):
+#             for c in range (10):
+#                 ImageDraw.Draw(g.grid_pil).line(pg1)
+#                 for i in range (0,14,2):
+#                     pg1[i] = pg1[i] + g.height_s()
+#             if (r%2 == 0):
+#                 for i in range (0,14,2):
+#                     pg1[i] = pg0[i] + g.height_s()/2
+#             else:
+#                 for i in range (0,14,2):
+#                     pg1[i] = pg0[i]    
+#             for i in range (1,14,2):
+#                 pg1[i] = pg1[i] + g.width/4*3
+
+#         g.grid_tk = ImageTk.BitmapImage(g.grid_pil)
+#         for r in range(r_dig+1):
+#             for c in range (c_dig+1):
+#                 if (r == r_dig):
+#                     ypos = int(g.height*r_dig)
+#                 xpos = int(g.width_s()*min(10*c,max(10*(c-1)+c_rmd,0)))+5+g.width_s()
+#                 ypos = int(g.height*min(10*r,max(10*(r-1)+r_rmd-1/2,0)))+5+g.height*3/4
+#                 f.canvas.create_image(xpos, ypos, image = g.grid_tk, anchor = tk.NW)
+ 
